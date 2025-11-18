@@ -47,7 +47,7 @@ function App() {
        <h1>Random Joke</h1>
        <span>Click the button to fetch a fresh one.</span>
        <br />
-       <button onClick={()=>setBtnPressed(true)} className="btn">Fetch joke</button>
+       <button onClick={()=>setBtnPressed(true)} disabled={isFetching} className="btn">Fetch joke</button>
        <br />
         {isFetching?(<div><b>Fetching...</b></div>):
          error?
