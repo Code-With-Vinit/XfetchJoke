@@ -48,22 +48,28 @@ function App() {
        <span>Click the button to fetch a fresh one.</span>
        <br />
         {isFetching?(<div><b>Fetching...</b></div>):
-        <div><button onClick={()=>setBtnPressed(true)} className="btn">Fetch joke</button>
-          {initial ? <p>No Joke Yet.</p>:""}
-          </div>}
-         {error?
+         error?
           <div className="child">
-            {/* <button onClick={()=>setBtnPressed(true)} className="btn">Fetch joke</button> */}
+            <button onClick={()=>setBtnPressed(true)} className="btn">Fetch joke</button>
             <p style={{color:"red"}}>Could not fetch a joke. Try again.</p>
             <p style={{marginTop:0}}><a onClick={()=>setBtnPressed(true)} href="#">Try Again</a></p>
           </div>
           :
           <div className="child">
-            {/* <button onClick={()=>setBtnPressed(true)} className="btn">Fetch joke</button> */}
+           {initial?   
+           <div className="child">
+            <button onClick={()=>setBtnPressed(true)} className="btn">Fetch joke</button>
+            <p>No Joke Yet.</p>
+           </div>
+          :
+          <div className="child">
+            <button onClick={()=>setBtnPressed(true)} className="btn">Fetch joke</button>
             <p>{joke.setup}
               <br /></p>
             <p style={{marginTop:0
             }}><b>{joke.punchline}</b></p>
+          </div>}
+
           </div>}
         
     </div> 
