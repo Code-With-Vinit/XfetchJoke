@@ -47,10 +47,11 @@ function App() {
        <h1>Random Joke</h1>
        <span>Click the button to fetch a fresh one.</span>
        <br />
+       <button onClick={()=>setBtnPressed(true)} className="btn">Fetch joke</button>
+       <br />
         {isFetching?(<div><b>Fetching...</b></div>):
          error?
           <div className="child">
-            <button onClick={()=>setBtnPressed(true)} className="btn">Fetch joke</button>
             <p style={{color:"red"}}>Could not fetch a joke. Try again.</p>
             <p style={{marginTop:0}}><a onClick={()=>setBtnPressed(true)} href="#">Try Again</a></p>
           </div>
@@ -58,12 +59,10 @@ function App() {
           <div className="child">
            {initial?   
            <div className="child">
-            <button onClick={()=>setBtnPressed(true)} className="btn">Fetch joke</button>
             <p>No Joke Yet.</p>
            </div>
           :
           <div className="child">
-            <button onClick={()=>setBtnPressed(true)} className="btn">Fetch joke</button>
             <p>{joke.setup}
               <br /></p>
             <p style={{marginTop:0
