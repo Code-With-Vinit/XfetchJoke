@@ -54,7 +54,7 @@ function App() {
          {error?
           <div className="child">
             {/* <button onClick={()=>setBtnPressed(true)} className="btn">Fetch joke</button> */}
-            <p style={{color:"red"}}>Could not fetch a joke. Try Again.</p>
+            <p style={{color:"red"}}>Could not fetch a joke. Try again.</p>
             <p style={{marginTop:0}}><a onClick={()=>setBtnPressed(true)} href="#">Try Again</a></p>
           </div>
           :
