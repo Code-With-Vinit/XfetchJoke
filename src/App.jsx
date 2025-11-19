@@ -17,6 +17,10 @@ function App() {
       try {
         setIsFectching(true)
         let response= await fetch(`https://official-joke-api.appspot.com/random_joke`);
+        if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
         let data= await response.json();
         setJoke(data);
         setError(false);
@@ -47,9 +51,9 @@ function App() {
        <h1>Random Joke</h1>
        <span>Click the button to fetch a fresh one.</span>
        <br />
-       <button onClick={()=>setBtnPressed(true)} disabled={isFetching} className="btn">Fetch joke</button>
+       <button onClick={()=>setBtnPressed(true)} disabled={isFetching} className="btn">{isFetching?"Fetching...":"Fetch joke"}</button>
        <br />
-        {isFetching?(<div><b>Fetching...</b></div>):
+        {isFetching?"":
          error?
           <div className="child">
             <p style={{color:"red"}}>Could not fetch a joke. Try again.</p>
