@@ -20,7 +20,7 @@ function App() {
         if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
         let data= await response.json();
         setJoke(data);
         setError(false);
@@ -57,7 +57,7 @@ function App() {
          error?
           <div className="child">
             <p style={{color:"red"}}>Could not fetch a joke. Try again.</p>
-            <p style={{marginTop:0}}><a onClick={()=>setBtnPressed(true)} href="#">Try Again</a></p>
+            <p style={{marginTop:0}}><a onClick={()=>setBtnPressed(true)} href="#"><button className="btn">Try Again</button></a></p>
           </div>
           :
           <div className="child">
